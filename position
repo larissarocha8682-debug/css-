@@ -1,0 +1,270 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exercícios de Position no CSS</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+      background: #f4f4f4;
+    }
+
+    section {
+      background: white;
+      padding: 20px;
+      margin-bottom: 25px;
+      border-radius: 8px;
+      overflow: visible;
+    }
+
+    h1, h2 {
+      color: #333;
+    }
+
+    /* 1. STATIC */
+    .static-box {
+      position: static;
+      background: lightblue;
+      padding: 15px;
+      margin: 8px;
+    }
+
+    /* 2. RELATIVE */
+    .relative-box {
+      position: relative;
+      left: 20px;
+      top: 20px;
+      background: lightgreen;
+      padding: 15px;
+      margin: 10px;
+    }
+
+    /* 3. ABSOLUTE dentro de RELATIVE */
+    .pai {
+      position: relative;
+      height: 130px;
+      background: #ddd;
+      padding: 10px;
+    }
+
+    .filho {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: orange;
+      padding: 15px;
+    }
+
+    /* 4. FIXED no cabeçalho */
+    .cabecalho {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: #333;
+      color: white;
+      padding: 12px;
+      text-align: center;
+      z-index: 10;
+      box-sizing: border-box;
+    }
+
+    body {
+      padding-top: 55px;
+    }
+
+    /* 5. STICKY no menu */
+    .menu {
+      position: sticky;
+      top: 55px;
+      background: #b8a1d9;
+      padding: 12px;
+      z-index: 5;
+    }
+
+    /* 6. ABSOLUTE fora da área do exemplo */
+    .area-seis {
+      position: relative;
+      height: 100px;
+      overflow: hidden;
+      background: #eee;
+    }
+
+    .fora {
+      position: absolute;
+      top: -30px;
+      left: -40px;
+      background: tomato;
+      padding: 15px;
+    }
+
+    /* 7. OVERLAY FIXED */
+    .overlay-demo {
+      position: relative;
+      height: 100px;
+      background: #ddd;
+      padding: 10px;
+    }
+
+    .overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.4);
+      color: white;
+      display: grid;
+      place-items: center;
+    }
+
+    /* 8. RELATIVE dentro de ABSOLUTE */
+    .pai-absoluto {
+      position: relative;
+      height: 120px;
+      background: #ddd;
+    }
+
+    .absoluto {
+      position: absolute;
+      top: 15px;
+      left: 15px;
+      width: 230px;
+      height: 70px;
+      background: #cde;
+    }
+
+    .relativo-interno {
+      position: relative;
+      top: 15px;
+      left: 25px;
+      background: lightgreen;
+      padding: 10px;
+      width: fit-content;
+    }
+
+    /* 9. BOTÃO FIXED */
+    .botao-fixo {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #176b45;
+      color: white;
+      border: none;
+      padding: 14px;
+      border-radius: 8px;
+      cursor: pointer;
+      z-index: 20;
+    }
+
+    /* 10. STICKY com rolagem */
+    .rolagem {
+      height: 180px;
+      overflow-y: auto;
+      background: #eee;
+    }
+
+    .titulo-sticky {
+      position: sticky;
+      top: 0;
+      background: gold;
+      padding: 12px;
+    }
+
+    .conteudo {
+      height: 350px;
+      padding: 10px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="cabecalho">4. Cabeçalho fixo</div>
+
+  <h1>Exercícios de Position no CSS</h1>
+
+  <section>
+    <h2>1. Elemento Static</h2>
+    <div class="static-box">Caixa 1</div>
+    <div class="static-box">Caixa 2</div>
+    <div class="static-box">Caixa 3</div>
+    <p>As caixas seguem o fluxo normal da página.</p>
+  </section>
+
+  <section>
+    <h2>2. Elemento Relative</h2>
+    <div class="relative-box">
+      Caixa deslocada 20px para a direita e 20px para baixo.
+    </div>
+    <p>O espaço original da caixa continua reservado.</p>
+  </section>
+
+  <section>
+    <h2>3. Elemento Absolute</h2>
+    <div class="pai">
+      Elemento pai com position: relative
+      <div class="filho">Filho absoluto</div>
+    </div>
+  </section>
+
+  <section>
+    <h2>5. Menu Sticky</h2>
+    <p>Role a página para observar o menu.</p>
+    <div class="menu">Menu de navegação sticky</div>
+    <p>O menu gruda no topo quando alcança o limite definido.</p>
+  </section>
+
+  <section>
+    <h2>6. Absolute fora da posição original</h2>
+    <div class="area-seis">
+      <div class="fora">Deslocado com valores negativos</div>
+    </div>
+  </section>
+
+  <section>
+    <h2>7. Overlay</h2>
+    <div class="overlay-demo">
+      Conteúdo atrás da camada
+      <div class="overlay">Camada semitransparente</div>
+    </div>
+  </section>
+
+  <section>
+    <h2>8. Relative dentro de Absolute</h2>
+    <div class="pai-absoluto">
+      <div class="absoluto">
+        <div class="relativo-interno">Elemento relativo</div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>9. Botão Fixed</h2>
+    <p>O botão verde no canto da tela permanece visível durante a rolagem.</p>
+    <p>Role a página para testar.</p>
+  </section>
+
+  <section>
+    <h2>10. Scroll com Sticky</h2>
+    <div class="rolagem">
+      <div class="titulo-sticky">Título que gruda durante a rolagem</div>
+      <div class="conteudo">
+        <p>Conteúdo da área rolável.</p>
+        <p>Continue rolando para observar o título.</p>
+        <p>O título permanece no topo desta área.</p>
+        <p>Mais conteúdo para testar o comportamento.</p>
+        <p>Final do conteúdo.</p>
+      </div>
+    </div>
+  </section>
+
+  <button class="botao-fixo"
+    onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+    Voltar ao topo
+  </button>
+
+</body>
+</html>
