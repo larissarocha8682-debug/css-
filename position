@@ -1,0 +1,289 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercícios de Position CSS</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 80px 20px 100px;
+            background-color: #f2f2f2;
+        }
+
+        section {
+            background-color: white;
+            padding: 20px;
+            margin-bottom: 25px;
+            border-radius: 8px;
+        }
+
+        h1, h2 {
+            color: #333;
+        }
+
+        /* 1. ELEMENTO STATIC */
+        .static {
+            position: static;
+            background-color: lightblue;
+            padding: 15px;
+            margin: 10px;
+        }
+
+        /* 2. ELEMENTO RELATIVE */
+        .relative {
+            position: relative;
+            left: 20px;
+            top: 50px;
+            background-color: lightgreen;
+            padding: 15px;
+            margin-bottom: 60px;
+        }
+
+        /* 3. ELEMENTO ABSOLUTE */
+        .pai {
+            position: relative;
+            height: 150px;
+            background-color: #ddd;
+            padding: 10px;
+        }
+
+        .filho {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background-color: orange;
+            padding: 15px;
+        }
+
+        /* 4. CABEÇALHO FIXED */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 20px;
+            box-sizing: border-box;
+            background-color: #333;
+            color: white;
+            text-align: center;
+            z-index: 10;
+        }
+
+        /* 5. MENU STICKY */
+        .menu {
+            position: sticky;
+            top: 60px;
+            background-color: plum;
+            padding: 15px;
+            z-index: 5;
+        }
+
+        /* 6. ABSOLUTE FORA DA ÁREA */
+        .area {
+            position: relative;
+            height: 100px;
+            overflow: hidden;
+            background-color: #eee;
+        }
+
+        .fora {
+            position: absolute;
+            top: -20px;
+            left: -30px;
+            background-color: tomato;
+            padding: 15px;
+        }
+
+        /* 7. OVERLAY FIXED */
+        .overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.6);
+            justify-content: center;
+            align-items: center;
+            z-index: 20;
+        }
+
+        .overlay-conteudo {
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+        }
+
+        /* 8. RELATIVE DENTRO DE ABSOLUTE */
+        .area-pai {
+            position: relative;
+            height: 150px;
+            background-color: #ddd;
+        }
+
+        .absoluto {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            width: 300px;
+            height: 100px;
+            background-color: orange;
+        }
+
+        .relativo-interno {
+            position: relative;
+            top: 20px;
+            left: 20px;
+            background-color: lightgreen;
+            padding: 10px;
+            width: fit-content;
+        }
+
+        /* 9. BOTÃO FIXED */
+        .botao-fixo {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            padding: 15px;
+            background-color: green;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        /* 10. STICKY COM SCROLL */
+        .rolagem {
+            height: 200px;
+            overflow-y: auto;
+            background-color: #eee;
+        }
+
+        .titulo-sticky {
+            position: sticky;
+            top: 0;
+            background-color: gold;
+            padding: 15px;
+        }
+
+        .conteudo {
+            height: 400px;
+            padding: 15px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>Exercícios de CSS Position</header>
+
+    <h1>Atividade prática: Position no CSS</h1>
+
+    <section>
+        <h2>1. Elemento Estático</h2>
+        <div class="static">Caixa 1</div>
+        <div class="static">Caixa 2</div>
+        <div class="static">Caixa 3</div>
+        <p>Os elementos seguem o fluxo normal da página.</p>
+    </section>
+
+    <section>
+        <h2>2. Elemento Relativo</h2>
+        <div class="relative">
+            Caixa movida 20px para a direita e 50px para baixo.
+        </div>
+        <p>O espaço original da caixa continua reservado.</p>
+    </section>
+
+    <section>
+        <h2>3. Elemento Absoluto</h2>
+        <div class="pai">
+            Elemento pai com position relative.
+            <div class="filho">Elemento absoluto</div>
+        </div>
+    </section>
+
+    <section>
+        <h2>4. Cabeçalho Fixed</h2>
+        <p>O cabeçalho permanece no topo enquanto a página é rolada.</p>
+    </section>
+
+    <section>
+        <h2>5. Menu Sticky</h2>
+        <p>Role a página para observar o menu.</p>
+        <nav class="menu">
+            Início | Sobre | Serviços | Contato
+        </nav>
+        <p>O menu gruda no topo ao atingir a posição definida.</p>
+    </section>
+
+    <section>
+        <h2>6. Elemento Absoluto Fora da Área</h2>
+        <div class="area">
+            <div class="fora">Elemento deslocado</div>
+        </div>
+        <p>Valores negativos deslocam o elemento para fora da área.</p>
+    </section>
+
+    <section>
+        <h2>7. Overlay com Fixed</h2>
+        <p>Clique no botão para abrir uma camada sobre a página.</p>
+        <button onclick="document.getElementById('overlay').style.display='flex'">
+            Abrir overlay
+        </button>
+
+        <div class="overlay" id="overlay">
+            <div class="overlay-conteudo">
+                <h2>Overlay</h2>
+                <p>Camada com fundo semitransparente.</p>
+                <button onclick="document.getElementById('overlay').style.display='none'">
+                    Fechar
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>8. Relative Dentro de Absolute</h2>
+        <div class="area-pai">
+            <div class="absoluto">
+                Elemento absolute
+                <div class="relativo-interno">
+                    Elemento relative
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>9. Botão Fixed</h2>
+        <p>O botão verde no canto inferior direito permanece visível durante a rolagem.</p>
+    </section>
+
+    <section>
+        <h2>10. Scroll com Sticky</h2>
+        <p>Role dentro da caixa abaixo para testar o efeito.</p>
+
+        <div class="rolagem">
+            <div class="titulo-sticky">Título que fica no topo</div>
+            <div class="conteudo">
+                <p>Conteúdo da área rolável.</p>
+                <p>Continue rolando para observar o título.</p>
+                <p>O título permanece visível no topo da caixa.</p>
+                <p>Este comportamento é útil em menus e cabeçalhos.</p>
+                <p>Fim do conteúdo.</p>
+            </div>
+        </div>
+    </section>
+
+    <button class="botao-fixo"
+        onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+        Voltar ao topo
+    </button>
+
+</body>
+</html>
